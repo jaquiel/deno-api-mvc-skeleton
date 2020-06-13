@@ -18,14 +18,14 @@ let products: Product[] = [
     }
 ];
 
-const index = ({ response }: { response: any }) => {
+const getAllProducts = ({ response }: { response: any }) => {
     response.body = {
         success: true,
         data: products
     }
 }
 
-const show = ({ params, response }: { params: { id: string }, response: any }) => {
+const getProductById = ({ params, response }: { params: { id: string }, response: any }) => {
     
     const product: Product | undefined = products.find(p => p.id === params.id)
 
@@ -38,4 +38,4 @@ const show = ({ params, response }: { params: { id: string }, response: any }) =
     }
 }
 
-export { index, show }
+export { getAllProducts, getProductById }
